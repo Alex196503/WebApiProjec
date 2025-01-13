@@ -14,9 +14,9 @@ namespace WebApiProjec.Controllers
     [ApiController]
     public class CourtsController : ControllerBase
     {
-        private readonly WebApiProjecContext _context;
+        private readonly ProiectMediiBunContext _context;
 
-        public CourtsController(WebApiProjecContext context)
+        public CourtsController(ProiectMediiBunContext context)
         {
             _context = context;
         }

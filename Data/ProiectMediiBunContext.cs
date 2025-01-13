@@ -7,9 +7,9 @@ using WebApiProjec.Models;
 
 namespace WebApiProjec.Data
 {
-    public class WebApiProjecContext : DbContext
+    public class ProiectMediiBunContext : DbContext
     {
-        public WebApiProjecContext (DbContextOptions<WebApiProjecContext> options)
+        public ProiectMediiBunContext (DbContextOptions<ProiectMediiBunContext> options)
             : base(options)
         {
         }

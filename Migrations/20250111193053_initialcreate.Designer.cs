@@ -10,7 +10,7 @@ using WebApiProjec.Data;
 
 namespace WebApiProjec.Migrations
 {
-    [DbContext(typeof(WebApiProjecContext))]
+    [DbContext(typeof(ProiectMediiBunContext))]
     [Migration("20250111193053_initialcreate")]
     partial class initialcreate
     {

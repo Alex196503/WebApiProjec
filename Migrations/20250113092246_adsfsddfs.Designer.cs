@@ -12,8 +12,8 @@ using WebApiProjec.Data;
 namespace WebApiProjec.Migrations
 {
     [DbContext(typeof(ProiectMediiBunContext))]
-    [Migration("20250111194533_asfasg")]
-    partial class asfasg
+    [Migration("20250113092246_adsfsddfs")]
+    partial class adsfsddfs
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -78,6 +78,8 @@ namespace WebApiProjec.Migrations
 
                     b.HasIndex("MembershipID");
 
+                    b.HasIndex("TrainerID");
+
                     b.ToTable("Member");
                 });
 
@@ -133,11 +135,68 @@ namespace WebApiProjec.Migrations
                     b.ToTable("Reservation");
                 });
 
+            modelBuilder.Entity("WebApiProjec.Models.Review", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
+
+                    b.Property<string>("Comment")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Rating")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("ReviewDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("TrainerID")
+                        .HasColumnType("int");
+
+                    b.HasKey("ID");
+
+                    b.HasIndex("TrainerID");
+
+                    b.ToTable("Review");
+                });
+
+            modelBuilder.Entity("WebApiProjec.Models.Trainer", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("ReviewID")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Specialization")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("Trainer");
+                });
+
             modelBuilder.Entity("WebApiProjec.Models.Member", b =>
                 {
                     b.HasOne("WebApiProjec.Models.Membership", null)
                         .WithMany("Members")
                         .HasForeignKey("MembershipID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("WebApiProjec.Models.Trainer", null)
+                        .WithMany("Members")
+                        .HasForeignKey("TrainerID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
@@ -161,6 +220,15 @@ namespace WebApiProjec.Migrations
                     b.Navigation("Member");
                 });
 
+            modelBuilder.Entity("WebApiProjec.Models.Review", b =>
+                {
+                    b.HasOne("WebApiProjec.Models.Trainer", null)
+                        .WithMany("Reviews")
+                        .HasForeignKey("TrainerID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("WebApiProjec.Models.Court", b =>
                 {
                     b.Navigation("Reservations");
@@ -169,6 +237,13 @@ namespace WebApiProjec.Migrations
             modelBuilder.Entity("WebApiProjec.Models.Membership", b =>
                 {
                     b.Navigation("Members");
+                });
+
+            modelBuilder.Entity("WebApiProjec.Models.Trainer", b =>
+                {
+                    b.Navigation("Members");
+
+                    b.Navigation("Reviews");
                 });
 #pragma warning restore 612, 618
         }

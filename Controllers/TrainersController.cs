@@ -14,9 +14,9 @@ namespace WebApiProjec.Controllers
     [ApiController]
     public class TrainersController : ControllerBase
     {
-        private readonly WebApiProjecContext _context;
+        private readonly ProiectMediiBunContext _context;
 
-        public TrainersController(WebApiProjecContext context)
+        public TrainersController(ProiectMediiBunContext context)
         {
             _context = context;
         }

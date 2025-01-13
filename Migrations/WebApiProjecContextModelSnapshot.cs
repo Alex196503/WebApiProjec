@@ -10,7 +10,7 @@ using WebApiProjec.Data;
 
 namespace WebApiProjec.Migrations
 {
-    [DbContext(typeof(WebApiProjecContext))]
+    [DbContext(typeof(ProiectMediiBunContext))]
     partial class WebApiProjecContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)

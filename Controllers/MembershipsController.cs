@@ -14,9 +14,9 @@ namespace WebApiProjec.Controllers
     [ApiController]
     public class MembershipsController : ControllerBase
     {
-        private readonly WebApiProjecContext _context;
+        private readonly ProiectMediiBunContext _context;
 
-        public MembershipsController(WebApiProjecContext context)
+        public MembershipsController(ProiectMediiBunContext context)
         {
             _context = context;
         }

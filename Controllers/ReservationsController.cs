@@ -14,9 +14,9 @@ namespace WebApiProjec.Controllers
     [ApiController]
     public class ReservationsController : ControllerBase
     {
-        private readonly WebApiProjecContext _context;
+        private readonly ProiectMediiBunContext _context;
 
-        public ReservationsController(WebApiProjecContext context)
+        public ReservationsController(ProiectMediiBunContext context)
         {
             _context = context;
         }

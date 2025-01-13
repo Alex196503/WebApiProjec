@@ -2,8 +2,9 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using WebApiProjec.Data;
 var builder = WebApplication.CreateBuilder(args);
-builder.Services.AddDbContext<WebApiProjecContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("WebApiProjecContext") ?? throw new InvalidOperationException("Connection string 'WebApiProjecContext' not found.")));
+builder.Services.AddDbContext<ProiectMediiBunContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("ProiectMediiBunContext")
+    ?? throw new InvalidOperationException("Connection string 'ProiectMediiBunContext' not found.")));
 
 // Add services to the container.
 

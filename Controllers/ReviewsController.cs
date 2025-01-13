@@ -14,9 +14,9 @@ namespace WebApiProjec.Controllers
     [ApiController]
     public class ReviewsController : ControllerBase
     {
-        private readonly WebApiProjecContext _context;
+        private readonly ProiectMediiBunContext _context;
 
-        public ReviewsController(WebApiProjecContext context)
+        public ReviewsController(ProiectMediiBunContext context)
         {
             _context = context;
         }

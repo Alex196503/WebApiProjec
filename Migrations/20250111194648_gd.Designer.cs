@@ -11,7 +11,7 @@ using WebApiProjec.Data;
 
 namespace WebApiProjec.Migrations
 {
-    [DbContext(typeof(WebApiProjecContext))]
+    [DbContext(typeof(ProiectMediiBunContext))]
     [Migration("20250111194648_gd")]
     partial class gd
     {
