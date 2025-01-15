@@ -21,14 +21,12 @@ namespace WebApiProjec.Controllers
             _context = context;
         }
 
-        // GET: api/Courts
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Court>>> GetCourt()
         {
             return await _context.Court.ToListAsync();
         }
 
-        // GET: api/Courts/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Court>> GetCourt(int id)
         {
@@ -42,8 +40,7 @@ namespace WebApiProjec.Controllers
             return court;
         }
 
-        // PUT: api/Courts/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        
         [HttpPut("{id}")]
         public async Task<IActionResult> PutCourt(int id, Court court)
         {
@@ -73,8 +70,7 @@ namespace WebApiProjec.Controllers
             return NoContent();
         }
 
-        // POST: api/Courts
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+
         [HttpPost]
         public async Task<ActionResult<Court>> PostCourt(Court court)
         {
@@ -84,7 +80,6 @@ namespace WebApiProjec.Controllers
             return CreatedAtAction("GetCourt", new { id = court.ID }, court);
         }
 
-        // DELETE: api/Courts/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteCourt(int id)
         {

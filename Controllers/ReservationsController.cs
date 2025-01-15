@@ -21,14 +21,12 @@ namespace WebApiProjec.Controllers
             _context = context;
         }
 
-        // GET: api/Reservations
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Reservation>>> GetReservation()
         {
             return await _context.Reservation.ToListAsync();
         }
 
-        // GET: api/Reservations/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Reservation>> GetReservation(int id)
         {
@@ -42,7 +40,6 @@ namespace WebApiProjec.Controllers
             return reservation;
         }
 
-        // PUT: api/Reservations/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
         public async Task<IActionResult> PutReservation(int id, Reservation reservation)
@@ -73,7 +70,6 @@ namespace WebApiProjec.Controllers
             return NoContent();
         }
 
-        // POST: api/Reservations
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
         public async Task<ActionResult<Reservation>> PostReservation(Reservation reservation)
@@ -84,7 +80,6 @@ namespace WebApiProjec.Controllers
             return CreatedAtAction("GetReservation", new { id = reservation.ID }, reservation);
         }
 
-        // DELETE: api/Reservations/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteReservation(int id)
         {

@@ -21,14 +21,12 @@ namespace WebApiProjec.Controllers
             _context = context;
         }
 
-        // GET: api/Trainers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Trainer>>> GetTrainer()
         {
             return await _context.Trainer.ToListAsync();
         }
 
-        // GET: api/Trainers/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Trainer>> GetTrainer(int id)
         {
@@ -42,7 +40,6 @@ namespace WebApiProjec.Controllers
             return trainer;
         }
 
-        // PUT: api/Trainers/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
         public async Task<IActionResult> PutTrainer(int id, Trainer trainer)
@@ -73,7 +70,6 @@ namespace WebApiProjec.Controllers
             return NoContent();
         }
 
-        // POST: api/Trainers
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
         public async Task<ActionResult<Trainer>> PostTrainer(Trainer trainer)
@@ -84,7 +80,6 @@ namespace WebApiProjec.Controllers
             return CreatedAtAction("GetTrainer", new { id = trainer.ID }, trainer);
         }
 
-        // DELETE: api/Trainers/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteTrainer(int id)
         {

@@ -21,14 +21,12 @@ namespace WebApiProjec.Controllers
             _context = context;
         }
 
-        // GET: api/Members
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Member>>> GetMember()
         {
             return await _context.Member.ToListAsync();
         }
 
-        // GET: api/Members/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Member>> GetMember(int id)
         {
@@ -42,8 +40,7 @@ namespace WebApiProjec.Controllers
             return member;
         }
 
-        // PUT: api/Members/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+       
         [HttpPut("{id}")]
         public async Task<IActionResult> PutMember(int id, Member member)
         {
@@ -73,8 +70,7 @@ namespace WebApiProjec.Controllers
             return NoContent();
         }
 
-        // POST: api/Members
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        
         [HttpPost]
         public async Task<ActionResult<Member>> PostMember(Member member)
         {
@@ -84,7 +80,6 @@ namespace WebApiProjec.Controllers
             return CreatedAtAction("GetMember", new { id = member.ID }, member);
         }
 
-        // DELETE: api/Members/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteMember(int id)
         {

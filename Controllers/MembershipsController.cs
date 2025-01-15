@@ -21,14 +21,12 @@ namespace WebApiProjec.Controllers
             _context = context;
         }
 
-        // GET: api/Memberships
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Membership>>> GetMembership()
         {
             return await _context.Membership.ToListAsync();
         }
 
-        // GET: api/Memberships/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Membership>> GetMembership(int id)
         {
@@ -42,8 +40,7 @@ namespace WebApiProjec.Controllers
             return membership;
         }
 
-        // PUT: api/Memberships/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+      
         [HttpPut("{id}")]
         public async Task<IActionResult> PutMembership(int id, Membership membership)
         {
@@ -73,8 +70,7 @@ namespace WebApiProjec.Controllers
             return NoContent();
         }
 
-        // POST: api/Memberships
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+       
         [HttpPost]
         public async Task<ActionResult<Membership>> PostMembership(Membership membership)
         {
@@ -84,7 +80,7 @@ namespace WebApiProjec.Controllers
             return CreatedAtAction("GetMembership", new { id = membership.ID }, membership);
         }
 
-        // DELETE: api/Memberships/5
+       
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteMembership(int id)
         {
